@@ -9,6 +9,11 @@ export class PostInfoComponent implements OnInit {
 
   constructor() { }
 
+  status: any = [
+    { name: "Achado", value: 0 },
+    { name: "Perdido", value: 1 },
+  ];
+
   ngOnInit() {
   }
 

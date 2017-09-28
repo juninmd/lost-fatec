@@ -1,42 +1,30 @@
+<div class="row">
+  <table class="bordered striped highlight centered">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-  <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-            <label for="first_name">First Name</label>
-          </div>
-          <div class="input-field col s6">
-            <input id="last_name" type="text" class="validate">
-            <label for="last_name">Last Name</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-            <label for="disabled">Disabled</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="password" type="password" class="validate">
-            <label for="password">Password</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
-            This is an inline input field:
-            <div class="input-field inline">
-              <input id="email" type="email" class="validate">
-              <label for="email" data-error="wrong" data-success="right">Email</label>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
+    <tbody>
+      <tr *ngFor="let item of listaStatus">
+        <td>{{item.descricao}}</td>
+        <td><a class="btn-floating btn-small red" (click)="editar(item._id)">
+            <i class="tiny material-icons">mode_edit</i>
+      </a></td>
+      <td><a class="btn-floating btn-small red" (click)="excluir(item._id)">
+          <i class="tiny material-icons">delete</i>
+    </a></td>
+      </tr>
+      <tr *ngIf="listaStatus.length == 0">Você não possui status cadastrado</tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-small red" (click)="novoStatus()">
+        <i class="tiny material-icons">add</i>
+  </a>
+</div>

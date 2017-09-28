@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +12,8 @@ import { CategoriaInfoComponent } from './categoria-info/categoria-info.componen
 import { CategoriaListarComponent } from './categoria-listar/categoria-listar.component';
 import { UsuarioCadastrarComponent } from './usuario-cadastrar/usuario-cadastrar.component';
 import { LoginComponent } from './login/login.component';
-
+import { StatusService } from './services/status-service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,11 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     MaterializeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [StatusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

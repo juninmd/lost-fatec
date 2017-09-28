@@ -1,17 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StatusService } from '../services/status-service';
+import { LocalService } from '../services/local-service';
 
 @Component({
-  selector: 'app-status-info',
-  templateUrl: './status-info.component.html',
-  styleUrls: ['./status-info.component.css']
+  selector: 'app-local-info',
+  templateUrl: './local-info.component.html',
+  styleUrls: ['./local-info.component.css']
 })
-export class StatusInfoComponent implements OnInit {
+export class LocalInfoComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private statusService: StatusService) { }
+    private localService: LocalService) { }
 
   form: any = {};
 
@@ -20,12 +20,12 @@ export class StatusInfoComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       if (params['id'] != null) {
-        this.statusService.getById(params["id"])
+        this.localService.getById(params["id"])
           .subscribe(q => {
             this.form = q;
           }, err => {
             alert("erro: " + err.message);
-            this.router.navigate(['/status-listar'], {});
+            this.router.navigate(['/local-listar'], {});
           })
       }
     })
@@ -33,14 +33,14 @@ export class StatusInfoComponent implements OnInit {
 
   salvar() {
     if (this.form._id) {
-      this.statusService.put(this.form).subscribe(q => {
+      this.localService.put(this.form).subscribe(q => {
         this.voltar();
       }, err => {
         alert("erro " + err.message)
       })
     }
     else {
-      this.statusService.post(this.form).subscribe(q => {
+      this.localService.post(this.form).subscribe(q => {
         this.voltar();
       }, err => {
         alert("erro " + err.message)
@@ -49,7 +49,7 @@ export class StatusInfoComponent implements OnInit {
   }
 
   voltar() {
-    this.router.navigate(['/status-listar'], {});
+    this.router.navigate(['/local-listar'], {});
   }
 
 }

@@ -1,38 +1,59 @@
-<div class="modal-content">
-  <h5>Publicar objeto</h5>
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
+<form #postForm="ngForm" (ngSubmit)="salvar()">
 
-        <div class="input-field col s12">
-          <textarea placeholder="Descreva o objeto, como tamanho, cor, último local onde lembra do item." type="text" class="validate materialize-textarea"></textarea>
-          <label>Descrição</label>
-        </div>
+  <div class="container">
+    <div class="card">
 
-        <div class="input-field col s12 m6 l4">
-          <select materialize="material_select" [materializeSelectOptions]="status">
-                <option *ngFor="let option of status" [value]="option.value">{{option.name}}</option>
+      <div class="card-content">
+        <div class="row">
+
+          <div class="input-field col s12 m12 l12">
+            <textarea [(ngModel)]="form.descricao" name="form.descricao" required maxlength="200" placeholder="Descreva o objeto, como tamanho, cor, último local onde lembra do item."
+              type="text" class="validate materialize-textarea"></textarea>
+            <label>Descrição</label>
+          </div>
+
+          <div class="input-field col s12 m6 l4">
+            <select [(ngModel)]="form.status" name="form.status" required materialize="material_select" [materializeSelectOptions]="status">
+                  <option disabled>Selecione</option>
+                  <option *ngFor="let option of status" [value]="option._id">{{option.descricao}}</option>
               </select>
-          <label>Status</label>
-        </div>
+            <label>Status</label>
+          </div>
 
-        <div class="input-field col s12 m6 l4">
-          <input type="text" class="materialize">
-          <label>Autor</label>
-        </div>
+          <div class="input-field col s12 m6 l4">
+            <select [(ngModel)]="form.categoria" name="form.categoria" required materialize="material_select" [materializeSelectOptions]="categoria">
+                  <option disabled>Selecione</option>
+                  <option *ngFor="let option of categoria" [value]="option._id">{{option.descricao}}</option>
+                </select>
+            <label>Categoria</label>
+          </div>
 
-        <div class="input-field col s12 m6 l4">
-          <input type="text" class="materialize">
-          <label>Horário</label>
+          <div class="input-field col s12 m6 l4">
+            <select [(ngModel)]="form.local" name="form.local" required materialize="material_select" [materializeSelectOptions]="local">
+                    <option disabled>Selecione</option>
+                    <option *ngFor="let option of local" [value]="option._id">{{option.descricao}}</option>
+                  </select>
+            <label>Local</label>
+          </div>
+
+          <div class="input-field col s12 m12 l12">
+            <input [(ngModel)]="form.url" name="form.url" maxlength="200" placeholder="Coloque o link de uma imagem que se refere ao seu item"
+              type="url" class="validate" />
+            <label>Url</label>
+          </div>
+
         </div>
 
       </div>
-    </form>
+      <div class="card-action">
+        <div class="row">
+          <div class="input-field col inline right">
+            <button (click)="voltar()" type="button" class="btn-flat btn-tiny waves-effect waves-light blue white-text">Voltar</button>
+            <button type="submit" [disabled]="!postForm.form.valid" class="btn-flat btn-tiny waves-effect waves-light blue white-text">Publicar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-</div>
-<div class="modal-footer">
-  <a class="modal-action modal-close waves-effect waves-green btn-flat left">Anexar Imagem</a>
-  <a class="modal-action modal-close waves-effect waves-green btn-flat">Publicar</a>
-  <a class="modal-action modal-close waves-effect waves-red btn-flat white">Sair</a>
-</div>
+</form>

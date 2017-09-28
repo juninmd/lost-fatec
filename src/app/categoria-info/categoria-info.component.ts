@@ -22,7 +22,7 @@ export class CategoriaInfoComponent implements OnInit {
       if (params['id'] != null) {
         this.categoriaService.getById(params["id"])
           .subscribe(q => {
-            this.form = q[0];
+            this.form = q;
           }, err => {
             alert("erro: " + err.message);
             this.router.navigate(['/categoria-listar'], {});

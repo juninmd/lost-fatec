@@ -1,8 +1,8 @@
-<form #categoriaForm="ngForm" (ngSubmit)="salvar()">
+<form #localForm="ngForm" (ngSubmit)="salvar()">
     <div class="container">
       <div class="card">
         <div class="card-content">
-          <h5>Cadastro de Categoria</h5>
+          <h5>Cadastro de Local</h5>
           <div class="row">
             <div class="input-field col s12 m6 l6">
               <input type="text" name="form.descricao" [(ngModel)]="form.descricao" class="materialize" maxlength="80" required="required">
@@ -14,7 +14,7 @@
           <div class="row">
             <div class="input-field col inline right">
               <button (click)="voltar()" type="button" class="btn-flat btn-tiny waves-effect waves-light blue white-text">Voltar</button>
-              <button type="submit" [disabled]="!categoriaForm.form.valid" class="btn-flat btn-tiny waves-effect waves-light blue white-text">Salvar</button>
+              <button type="submit" [disabled]="!localForm.form.valid" class="btn-flat btn-tiny waves-effect waves-light blue white-text">Salvar</button>
             </div>
           </div>
         </div>

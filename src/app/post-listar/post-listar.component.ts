@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostService } from '../services/post-service';
 
 @Component({
   selector: 'app-post-listar',
@@ -7,14 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+    private postService: PostService) { }
 
-  posts: any = [
-    { autor: "antonio", horario: new Date(), descricao: "Perdi meu fone de ouvido", status: "Perdido", anexo: 0 },
-    { autor: "kaio", horario: new Date(), descricao: "Achei um fone de ouvido", status: "Achado", anexo: 1 },
-  ];
+  listaPost: any = [];
+
   ngOnInit() {
+    this.getAll();
   }
 
+  getAll() {
+    this.postService.getAll()
+      .subscribe(q => {
+        this.listaPost = q;
+      }, err => {
+        alert("erro: " + err.message);
+      })
+  }
 
+  editar(id: String) {
+    this.router.navigate(['/post-info', { id: id }]);
+  }
+
+  novo() {
+    this.router.navigate(['/post-info']);
+  }
+
+  excluir(id: String) {
+    this.postService.delete(id).subscribe(q => {
+      this.getAll();
+    }, err => alert('erro: ' + err.message))
+  }
+
+  naoPronto() {
+    alert("Essa funcionalidade não foi desenvolvida");
+  }
 }

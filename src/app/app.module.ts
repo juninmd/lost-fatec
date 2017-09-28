@@ -13,6 +13,7 @@ import { CategoriaListarComponent } from './categoria-listar/categoria-listar.co
 import { UsuarioCadastrarComponent } from './usuario-cadastrar/usuario-cadastrar.component';
 import { LoginComponent } from './login/login.component';
 import { StatusService } from './services/status-service';
+import { CategoriaService } from './services/categoria-service';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -34,7 +35,10 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     HttpModule
   ],
-  providers: [StatusService],
+  providers: [
+    StatusService,
+    CategoriaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

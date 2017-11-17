@@ -18,10 +18,12 @@ export class PostService {
     }
 
     public post(body: any) {
+        body.usuario = localStorage.getItem('usuario');
         return this.http.post(`${environment.api}post/`, body, null).map(response => response.json())
     }
 
     public put(body: any) {
+        body.usuario = localStorage.getItem('usuario');
         return this.http.put(`${environment.api}post/`, body, {}).map(response => response.json())
     }
 

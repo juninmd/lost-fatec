@@ -13,12 +13,14 @@ import { CategoriaListarComponent } from './categoria-listar/categoria-listar.co
 import { UsuarioCadastrarComponent } from './usuario-cadastrar/usuario-cadastrar.component';
 import { LoginComponent } from './login/login.component';
 import { StatusService } from './services/status-service';
+import { UsuarioService } from './services/usuario-service';
 import { CategoriaService } from './services/categoria-service';
 import { PostService } from './services/post-service';
 import { LocalService } from './services/local-service';
 import { HttpModule } from '@angular/http';
 import { LocalListarComponent } from './local-listar/local-listar.component';
 import { LocalInfoComponent } from './local-info/local-info.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { LocalInfoComponent } from './local-info/local-info.component';
     UsuarioCadastrarComponent,
     LoginComponent,
     LocalListarComponent,
-    LocalInfoComponent
+    LocalInfoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { LocalInfoComponent } from './local-info/local-info.component';
     StatusService,
     CategoriaService,
     PostService,
-    LocalService
+    LocalService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

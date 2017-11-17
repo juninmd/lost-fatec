@@ -11,10 +11,12 @@ import { LocalListarComponent } from './local-listar/local-listar.component';
 import { LocalInfoComponent } from './local-info/local-info.component';
 import { UsuarioCadastrarComponent } from './usuario-cadastrar/usuario-cadastrar.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
+            { path: '', component: LoginComponent },
             { path: 'post-listar', component: PostListarComponent },
             { path: 'post-info', component: PostInfoComponent },
             { path: 'status-listar', component: StatusListarComponent },
@@ -25,6 +27,7 @@ import { LoginComponent } from './login/login.component';
             { path: 'local-info', component: LocalInfoComponent },
             { path: 'local-listar', component: LocalListarComponent },
             { path: 'login', component: LoginComponent },
+            { path: 'home', component: HomeComponent },
             { path: '**', redirectTo: 'post-listar' }
         ])
     ],

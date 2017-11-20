@@ -10,6 +10,7 @@ import { CategoriaListarComponent } from './categoria-listar/categoria-listar.co
 import { LocalListarComponent } from './local-listar/local-listar.component';
 import { LocalInfoComponent } from './local-info/local-info.component';
 import { UsuarioCadastrarComponent } from './usuario-cadastrar/usuario-cadastrar.component';
+import { UsuarioListarComponent } from './usuario-listar/usuario-listar.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
@@ -24,6 +25,7 @@ import { HomeComponent } from './home/home.component';
             { path: 'categoria-info', component: CategoriaInfoComponent },
             { path: 'categoria-listar', component: CategoriaListarComponent },
             { path: 'usuario-cadastrar', component: UsuarioCadastrarComponent },
+            { path: 'usuario-listar', component: UsuarioListarComponent },
             { path: 'local-info', component: LocalInfoComponent },
             { path: 'local-listar', component: LocalListarComponent },
             { path: 'login', component: LoginComponent },

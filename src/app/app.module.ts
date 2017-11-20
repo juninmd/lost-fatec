@@ -21,6 +21,7 @@ import { HttpModule } from '@angular/http';
 import { LocalListarComponent } from './local-listar/local-listar.component';
 import { LocalInfoComponent } from './local-info/local-info.component';
 import { HomeComponent } from './home/home.component';
+import { UsuarioListarComponent } from './usuario-listar/usuario-listar.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     LocalListarComponent,
     LocalInfoComponent,
-    HomeComponent
+    HomeComponent,
+    UsuarioListarComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ module.exports = (app) => {
         res.header('Content-Type', 'application/json; charset=utf-8');
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers') || "*");
-        res.header("Access-Control-Allow-Methods", 'OPTIONS, GET, PUT, POST, DELETE, PATH');
+        res.header("Access-Control-Allow-Methods", 'OPTIONS, GET, PUT, POST, DELETE, PATCH');
 
         if (req.method === 'OPTIONS') {
             return res.status(204).send();
